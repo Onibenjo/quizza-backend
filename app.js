@@ -13,7 +13,7 @@ middlewares(app);
 
 // ROUTES
 app.get("/", (req, res) => {
-  return res.status(200).json({ app: "Quizza Application" });
+  return res.status(200).json({ Welcome: "Quizza Application" });
 });
 app.post("/api/v1/responses", responseController.saveResponse);
 app.get("/api/v1/responses", responseController.getResponses);
