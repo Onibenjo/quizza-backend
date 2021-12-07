@@ -1,13 +1,15 @@
 const crudService = require("../services/crudService");
 const Response = require("../models/responseModel");
 const catchAsync = require("../error/catchAsync");
-const io = require("../../server");
+// const io = require("../../server");
 
 exports.saveResponse = catchAsync(async (req, res, next) => {
   const response = new Response();
   response.data = req.body;
 
   await response.save();
+
+  res.io.emit('response', response);
 
   const allResponse = await Response.find();
 

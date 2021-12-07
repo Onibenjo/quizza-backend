@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 class Database {
+  
   connectMongoDB(dbUrl) {
     mongoose
       .connect(dbUrl, {

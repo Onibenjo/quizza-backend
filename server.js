@@ -32,9 +32,10 @@ server.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
 
+io.attach(server);
 // Exit(1)
 ProcessError.unHandledRejection(server);
 ProcessError.SIGTERM(server);
 console.log(process.env.NODE_ENV);
 
-module.exports = { server, io };
+module.exports = server;
