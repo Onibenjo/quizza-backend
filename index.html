@@ -71,19 +71,23 @@
       var form = document.getElementById("form");
       var input = document.getElementById("input");
 
+      socket.on("response", function(msg) {
+        var item = document.createElement("li");
+        const date = new Date(`${msg.createdAt}`).toString();
+        const { device, option } = msg.data;
+        item.textContent = `Device ${device} Clicked  option ${option} at ${
+          date.split(" ")[4]
+        }`;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
       form.addEventListener("submit", function(e) {
         e.preventDefault();
         if (input.value) {
           socket.emit("chat message", input.value);
           input.value = "";
         }
-
-        socket.on("response", function(msg) {
-          var item = document.createElement("li");
-          item.textContent = msg;
-          messages.appendChild(item);
-          window.scrollTo(0, document.body.scrollHeight);
-        });
       });
     </script>
   </body>

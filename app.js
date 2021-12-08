@@ -3,7 +3,7 @@ const express = require("express");
 const globalErrorHandler = require("./src/error/errorController");
 const APIError = require("./src/error/apiError");
 const middlewares = require("./src/middlewares/middleware");
-const responseController = require("./src/controllers/responseController");
+const responseRoute = require("./src/routes/responseRoute");
 
 //Start express app
 const app = express();
@@ -15,11 +15,8 @@ middlewares(app);
 app.get("/", (req, res) => {
   return res.status(200).json({ Name: "Quizza Backend" });
 });
-app.post(
-  "/api/v1/responses",
-    responseController.saveResponse
-);
-app.get("/api/v1/responses", responseController.getResponses);
+
+app.use("/api/v1/responses", responseRoute);
 
 //404 Route
 app.use("*", (req, res, next) => {

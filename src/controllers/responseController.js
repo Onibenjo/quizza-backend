@@ -11,12 +11,9 @@ exports.saveResponse = catchAsync(async (req, res, next) => {
 
   global._io.emit("response", response);
 
-  const allResponse = await Response.find();
-
   res.status(200).json({
     status: "sucsess",
-    response: response,
-    allResponse,
+    response,
   });
 });
 
