@@ -1,7 +1,7 @@
 const crudService = require("../services/crudService");
 const Response = require("../models/responseModel");
 const catchAsync = require("../error/catchAsync");
-// const io = require("../../server");
+const socket = require("../../server");
 
 exports.saveResponse = catchAsync(async (req, res, next) => {
   const response = new Response();
@@ -12,7 +12,7 @@ exports.saveResponse = catchAsync(async (req, res, next) => {
   global._io.emit("response", response);
 
   res.status(200).json({
-    status: "sucsess",
+    status: "success",
     response,
   });
 });

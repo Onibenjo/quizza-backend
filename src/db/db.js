@@ -1,18 +1,20 @@
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 class Database {
-  
-  connectMongoDB(dbUrl) {
-    mongoose
-      .connect(dbUrl, {
+  async connectMongoDB(dbUrl) {
+    try {
+      const db = await mongoose.connect(dbUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
-        useFindAndModify: false
-      })
-      .then(() => console.log('Database connection successful!'))
-      .catch(err => console.log('Database connection failed', err));
+        useFindAndModify: false,
+      });
+
+      console.info("Database connected successfully");
+    } catch (err) {
+      console.error("Database failed to connect", err);
+    }
   }
 }
 
