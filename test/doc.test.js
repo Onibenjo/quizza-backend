@@ -1,19 +1,14 @@
-/* eslint-disable no-undef */
-// eslint-disable-next-line node/no-unpublished-require
-const request = require('supertest');
+const axios = require("axios");
 
-const app = require('../app');
+async function makeRequest() {
+  const config = {
+    method: "get",
+    url: "http://13.245.101.82/api/v1/responses",
+  };
 
-describe('Documentation Route', () => {
-  it('should redirect to documentation page', async () => {
-    const res = await request(app).get('/api/v1/documentation');
-    expect(res.statusCode).toEqual(302);
-  });
-});
+  let res = await axios(config);
 
-describe('404 Route', () => {
-  it('should return 404', async () => {
-    const res = await request(app).get('*');
-    expect(res.statusCode).toEqual(404);
-  });
-});
+  console.log(res.data.data.forEach());
+}
+
+makeRequest();

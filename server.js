@@ -22,20 +22,22 @@ const server = http.createServer(app);
 const io = socketIO(server, {
   transports: ["polling"],
   cors: {
-    cors: {
-      origin: "http://localhost:3000",
-    },
+    cors: {},
   },
+});
+
+io.on("connection", (socket) => {
+  console.log(`${socket.id} is connected`);
 });
 
 server.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
 
-io.attach(server);
+global._io = io;
 // Exit(1)
 ProcessError.unHandledRejection(server);
 ProcessError.SIGTERM(server);
 console.log(process.env.NODE_ENV);
 
-module.exports = server;
+module.exports = io;

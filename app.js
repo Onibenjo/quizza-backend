@@ -15,7 +15,10 @@ middlewares(app);
 app.get("/", (req, res) => {
   return res.status(200).json({ Name: "Quizza Backend" });
 });
-app.post("/api/v1/responses", responseController.saveResponse);
+app.post(
+  "/api/v1/responses",
+    responseController.saveResponse
+);
 app.get("/api/v1/responses", responseController.getResponses);
 
 //404 Route

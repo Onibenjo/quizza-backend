@@ -9,15 +9,22 @@ exports.saveResponse = catchAsync(async (req, res, next) => {
 
   await response.save();
 
-  res.io.emit('response', response);
+  global._io.emit("response", response);
 
   const allResponse = await Response.find();
 
-    res.status(200).json({
+  res.status(200).json({
     status: "sucsess",
     response: response,
     allResponse,
   });
 });
+
+exports.io = (msg) => {
+  return (req, res, next) => {
+    console.log(msg);
+    next();
+  };
+};
 
 exports.getResponses = crudService.getAll(Response);
