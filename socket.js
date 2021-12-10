@@ -8,7 +8,7 @@ class Socket {
 
   createSocket() {
     const options = {
-      transports: ["websocket"],
+      transports: ["polling"],
       cors: {
         origin: "*",
         methods: ["GET", "POST"],

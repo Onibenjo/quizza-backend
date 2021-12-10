@@ -64,11 +64,13 @@
     <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
     <script>
       //   var socket = io("http://localhost:3000");
-      var socket = io("http://13.245.101.82");
+      var socket = io("http://13.245.101.82", { transports: ["websocket"] });
 
       socket.on("response", (msg) => {
         console.log(msg);
       });
+
+    //   console.log("connected", socket);
 
       var form = document.getElementById("form");
       var input = document.getElementById("input");
