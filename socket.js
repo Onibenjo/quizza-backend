@@ -8,9 +8,9 @@ class Socket {
 
   createSocket() {
     const options = {
-      transports: ["polling"],
+    //   transports: ["polling"],
       cors: {
-        origin: "*",
+        origin:"*"
       },
     };
 
