@@ -10,7 +10,7 @@ class Socket {
     const options = {
       transports: ["polling"],
       cors: {
-        cors: {},
+        origin: "*",
       },
     };
 

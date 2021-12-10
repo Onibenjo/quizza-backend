@@ -56,13 +56,15 @@
     </style>
   </head>
   <body>
+    <h1> Quizza App for Response</h1>
     <ul id="messages"></ul>
-    <form id="form" action="">
+    <!-- <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
+    </form> -->
     <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
     <script>
-      var socket = io("http://localhost:3000");
+      //   var socket = io("http://localhost:3000");
+      var socket = io("http://13.245.101.82");
 
       socket.on("response", (msg) => {
         console.log(msg);

@@ -1,7 +1,6 @@
 const crudService = require("../services/crudService");
 const Response = require("../models/responseModel");
 const catchAsync = require("../error/catchAsync");
-const socket = require("../../server");
 
 exports.saveResponse = catchAsync(async (req, res, next) => {
   const response = new Response();
