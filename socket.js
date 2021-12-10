@@ -14,7 +14,7 @@ class Socket {
       },
     };
 
-    const io = socketIO(this.server, options);
+    const io = socketIO(this.server);
 
     io.on("connection", (socket) => {
       console.log(`${socket.id} is connected`);
