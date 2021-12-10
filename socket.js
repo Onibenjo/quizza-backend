@@ -10,7 +10,7 @@ class Socket {
     const options = {
       transports: ["websocket"],
       cors: {
-        origin: "https://quizza-web-lu84rkqod-onibenjo.vercel.app/",
+        origin: "*",
         methods: ["GET", "POST"],
         allowedHeaders: ["*"],
         credentials: true,
