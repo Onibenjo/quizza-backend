@@ -10,7 +10,10 @@ class Socket {
     const options = {
       transports: ["polling"],
       cors: {
-        origin: ["http:localhost:3000", "*"],
+        origin: "*",
+        methods: ["GET", "POST"],
+        allowedHeaders: ["*"],
+        credentials: true,
       },
     };
 
