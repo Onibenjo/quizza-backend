@@ -8,9 +8,9 @@ class Socket {
 
   createSocket() {
     const options = {
-      transports: ["polling"],
+      transports: ["websocket"],
       cors: {
-        origin: "*",
+        origin: "https://quizza-web-lu84rkqod-onibenjo.vercel.app/",
         methods: ["GET", "POST"],
         allowedHeaders: ["*"],
         credentials: true,
