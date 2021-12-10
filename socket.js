@@ -10,11 +10,11 @@ class Socket {
     const options = {
       transports: ["polling"],
       cors: {
-        origin:"*"
+        origin: "http:localhost:3000",
       },
     };
 
-    const io = socketIO(this.server);
+    const io = socketIO(this.server, options);
 
     io.on("connection", (socket) => {
       console.log(`${socket.id} is connected`);
