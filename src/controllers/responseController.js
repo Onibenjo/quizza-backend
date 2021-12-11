@@ -1,4 +1,4 @@
-const crudService = require("../services/crudService");
+const crudService = require("../../utils/crudService");
 const Response = require("../models/responseModel");
 const catchAsync = require("../error/catchAsync");
 

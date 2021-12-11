@@ -1,6 +1,6 @@
-const catchAsync = require('../error/catchAsync');
-const AppError = require('../error/apiError');
-const APIFeatures = require('../../utils/apiFeatures');
+const catchAsync = require('../src/error/catchAsync');
+const AppError = require('../src/error/apiError');
+const APIFeatures = require('./apiFeatures');
 
 //   GET ONE
 exports.getOne = (Model, popOptions) =>

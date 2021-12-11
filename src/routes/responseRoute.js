@@ -4,7 +4,7 @@ const responseController = require("../controllers/responseController");
 
 const router = express.Router();
 
-router.route('/')
+router.route('/responses')
   .get(responseController.getResponses)
   .post(responseController.saveResponse);
 
