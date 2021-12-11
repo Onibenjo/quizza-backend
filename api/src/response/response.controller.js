@@ -1,12 +1,10 @@
-const crudService = require("../../utils/crudService");
-const Response = require("../models/responseModel");
-const catchAsync = require("../error/catchAsync");
+const crudService = require("../../db/dbQuery");
+const Response = require("./response.model");
+const catchAsync = require("../../error/catchAsync");
 
 exports.saveResponse = catchAsync(async (req, res, next) => {
-  const response = new Response();
-  response.data = req.body;
-
-  await response.save();
+  let { device, option } = req.body;
+  const response = await Response.create({ device, option });
 
   global._io.emit("response", response);
 

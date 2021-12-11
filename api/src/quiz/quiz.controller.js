@@ -1,7 +1,7 @@
-const CrudService = require("../../utils/crudService");
-const catchAsync = require("../error/catchAsync");
-const QuizModel = require("../models/quizModel");
-const APIError = require("../error/apiError");
+const CrudService = require("../../db/dbQuery");
+const catchAsync = require("../../error/catchAsync");
+const QuizModel = require("./quiz.model");
+const APIError = require("../../error/apiError");
 
 exports.create = catchAsync(async (req, res) => {
   const { title, description } = req.body; //extract title and description

@@ -1,6 +1,6 @@
 const express = require("express");
 
-const QuizController = require("../controllers/quizController");
+const QuizController = require("./quiz.controller");
 
 const router = express.Router();
 
@@ -10,5 +10,7 @@ router
   .post(QuizController.create);
 
 router.delete("/quiz/:id", QuizController.delete);
+
+
 
 module.exports = router;
