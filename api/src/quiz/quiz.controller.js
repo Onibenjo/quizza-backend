@@ -1,4 +1,4 @@
-const CrudService = require("../../db/dbQuery");
+const dbQuery = require("../../db/dbQuery");
 const catchAsync = require("../../error/catchAsync");
 const QuizModel = require("./quiz.model");
 const APIError = require("../../error/apiError");
@@ -21,5 +21,5 @@ exports.create = catchAsync(async (req, res) => {
   });
 });
 
-exports.delete = CrudService.deleteOne(QuizModel);
-exports.getAll = CrudService.getAll(QuizModel);
+exports.delete = dbQuery.deleteOne(QuizModel);
+exports.getAll = dbQuery.getAll(QuizModel);

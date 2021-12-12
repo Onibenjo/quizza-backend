@@ -1,4 +1,4 @@
-const crudService = require("../../db/dbQuery");
+const dbQuery = require("../../db/dbQuery");
 const Response = require("./response.model");
 const catchAsync = require("../../error/catchAsync");
 
@@ -21,4 +21,4 @@ exports.io = (msg) => {
   };
 };
 
-exports.getResponses = crudService.getAll(Response);
+exports.getResponses = dbQuery.getAll(Response);
