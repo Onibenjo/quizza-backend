@@ -22,6 +22,8 @@ app.use(apiV1, Routes.documentation);
 app.use(apiV1, Routes.responses);
 app.use(apiV1, Routes.quiz);
 app.use(apiV1, Routes.questions);
+app.use(apiV1, Routes.quizMaster);
+
 
 //404 Route
 app.use("*", (req, res, next) => {
