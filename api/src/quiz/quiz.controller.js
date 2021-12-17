@@ -10,9 +10,10 @@ exports.create = catchAsync(async (req, res) => {
     return next(new APIError("Please Enter title and description", 400));
 
   const quiz = new QuizModel();
+  
   quiz.title = title;
   quiz.description = description;
-  
+
   const newQuiz = await quiz.save();
 
   return res.status(201).json({
