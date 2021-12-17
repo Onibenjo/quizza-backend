@@ -10,7 +10,10 @@ class Socket {
     const options = {
       transports: ["polling"],
       cors: {
-        cors: {},
+        origin: "*",
+        methods: ["GET", "POST"],
+        allowedHeaders: ["*"],
+        credentials: true,
       },
     };
 

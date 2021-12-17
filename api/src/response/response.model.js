@@ -3,10 +3,14 @@ const mongoose = require("mongoose");
 
 const responseSchema = mongoose.Schema(
   {
-    data: {},
-    createdAt: {
-      type: Date,
-      default: Date.now,
+    option: {
+      type: String,
+      required: [true, "Please provide option"],
+      maxLength: 1
+    },
+    device: {
+      type: Number,
+      required: [true, "Please provide device number"],
     },
   },
   { versionKey: false, timestamp: true }

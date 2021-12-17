@@ -1,10 +1,10 @@
 const express = require("express");
 
-const responseController = require("../controllers/responseController");
+const responseController = require("./response.controller");
 
 const router = express.Router();
 
-router.route('/')
+router.route('/responses')
   .get(responseController.getResponses)
   .post(responseController.saveResponse);
 

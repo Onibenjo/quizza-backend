@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const dotenv = require("dotenv");
-const ProcessError = require("./src/error/ProcessError");
-const DB = require("./src/db/db");
+const ProcessError = require("./api/error/ProcessError");
+const DB = require("./api/db/db");
 const http = require("http");
 const { Socket } = require("./socket");
 

@@ -56,7 +56,7 @@
     </style>
   </head>
   <body>
-    <h1>Quizza App for Response</h1>
+    <h1> Quizza App for Response</h1>
     <ul id="messages"></ul>
     <!-- <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
@@ -64,13 +64,11 @@
     <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
     <script>
       //   var socket = io("http://localhost:3000");
-      var socket = io("http://13.245.101.82", { transports: ["polling"] });
+      var socket = io("http://localhost:3000");
 
       socket.on("response", (msg) => {
         console.log(msg);
       });
-
-        console.log( socket);
 
       var form = document.getElementById("form");
       var input = document.getElementById("input");
@@ -86,12 +84,13 @@
         window.scrollTo(0, document.body.scrollHeight);
       });
 
-      //   form.addEventListener("submit", function(e) {
-      //     e.preventDefault();
-      //     if (input.value) {
-      //       socket.emit("chat message", input.value);
-      //       input.value = "";
-      //     }
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit("chat message", input.value);
+          input.value = "";
+        }
+      });
     </script>
   </body>
 </html>
