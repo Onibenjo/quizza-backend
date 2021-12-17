@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 const dotenv = require("dotenv");
-const ProcessError = require("./src/error/ProcessError");
-const DB = require("./src/db/db");
+const ProcessError = require("./api/error/ProcessError");
+const DB = require("./api/db/db");
 const http = require("http");
-const socketIO = require("socket.io");
+const { Socket } = require("./socket");
 
 dotenv.config({ path: "./config.env" });
 
@@ -19,14 +19,7 @@ const port = PORT || 3000;
 
 const server = http.createServer(app);
 
-const io = socketIO(server, {
-  transports: ["polling"],
-  cors: {
-    cors: {
-      origin: "http://localhost:3000",
-    },
-  },
-});
+new Socket(server); //Create socket and attach to server
 
 server.listen(port, () => {
   console.log(`App running on port ${port}...`);
@@ -36,5 +29,3 @@ server.listen(port, () => {
 ProcessError.unHandledRejection(server);
 ProcessError.SIGTERM(server);
 console.log(process.env.NODE_ENV);
-
-module.exports = { server, io };
