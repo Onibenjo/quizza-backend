@@ -12,12 +12,12 @@ exports.create = catchAsync(async (req, res) => {
   const quiz = new QuizModel();
   quiz.title = title;
   quiz.description = description;
-  await quiz.save();
+  
+  const newQuiz = await quiz.save();
 
   return res.status(201).json({
     status: "success",
-    title,
-    description,
+    newQuiz
   });
 });
 
