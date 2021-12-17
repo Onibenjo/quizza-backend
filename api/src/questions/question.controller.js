@@ -21,11 +21,11 @@ exports.create = catchAsync(async (req, res, next) => {
   if (newQuestion.options.length < 4)
     return next(new APIError("Please provide at least 4 options", 400));
 
-  await newQuestion.save();
+  const quest = await newQuestion.save();
 
   return res.status(201).json({
     status: "success",
-    newQuestion,
+    quest,
   });
 });
 
