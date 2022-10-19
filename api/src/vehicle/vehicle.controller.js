@@ -4,6 +4,7 @@ const catchAsync = require("../../error/catchAsync");
 const APIError = require("../../error/apiError");
 
 exports.createVehicle = catchAsync(async (req, res, next) => {
+  
   const { name, location, longitude, latitude } = req.body;
 
   if (!location || !longitude || !name || !latitude)
@@ -15,7 +16,7 @@ exports.createVehicle = catchAsync(async (req, res, next) => {
     status: "success",
     newVehicle,
   });
-  
+
 });
 
 exports.getVehicle = dbQuery.getAll(VehicleModel);
