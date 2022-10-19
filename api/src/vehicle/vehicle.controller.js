@@ -15,6 +15,7 @@ exports.createVehicle = catchAsync(async (req, res, next) => {
     status: "success",
     newVehicle,
   });
+  
 });
 
 exports.getVehicle = dbQuery.getAll(VehicleModel);
