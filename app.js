@@ -23,6 +23,7 @@ app.use(apiV1, Routes.responses);
 app.use(apiV1, Routes.quiz);
 app.use(apiV1, Routes.questions);
 app.use(apiV1, Routes.quizMaster);
+app.use(apiV1, Routes.vehicle);
 
 
 //404 Route

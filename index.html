@@ -54,6 +54,7 @@
         background: #efefef;
       }
     </style>
+  <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
   </head>
   <body>
     <h1>Quizza App for Response</h1>
@@ -61,10 +62,9 @@
     <!-- <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
     </form> -->
-    <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
     <script>
       //   var socket = io("http://localhost:3000");
-      var socket = io("http://13.245.101.82", { transports: ["polling"] });
+      var socket = io("https://quizza-backend-app.herokuapp.com", { transports: ["polling"] });
 
       socket.on("response", (msg) => {
         console.log(msg);
@@ -78,10 +78,8 @@
       socket.on("response", function(msg) {
         var item = document.createElement("li");
         const date = new Date(`${msg.createdAt}`).toString();
-        const { device, option } = msg.data;
-        item.textContent = `Device ${device} Clicked  option ${option} at ${
-          date.split(" ")[4]
-        }`;
+        const { device, option } = msg;
+        item.textContent = `Device ${device} Clicked  option ${option}`
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });
