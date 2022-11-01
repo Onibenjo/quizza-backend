@@ -8,6 +8,8 @@ exports.saveResponse = catchAsync(async (req, res, next) => {
 
   global._io.emit("response", response);
 
+  console.log(`${device} CLICKED ${option}`)
+
   res.status(200).json({
     status: "success",
     response,
